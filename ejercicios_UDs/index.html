@@ -19,5 +19,17 @@
 <body>
     
 </body>
-
+<script>
+    //LO PONGO AQUI PORQUE MANIPULO LO QUE HAY DENTRO DEL <BODY> Y ME TENGO QUE ASEGURAR DE QUE ESTÉ YA CARGADO.
+    //EJERCICIO 20
+    let numero1 = prompt("Introduce un número: ");
+    let numero2 = prompt("Introduce otro número: ");
+    let numeroMinimo = Math.min(numero1, numero2);
+    let numeroMaximo = Math.max(numero1, numero2);
+    document.write("<h1>Números múltiplos de 8 entre "+numeroMinimo+" y "+numeroMaximo+"</h1>");
+    for(let index=numeroMinimo; index<=numeroMaximo; index++)
+        if(index%8==0)//es múltiplo de 8
+            document.write("<p>"+index+"<p>");    
+</script>
 </html>
+
