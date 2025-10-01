@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo BOM</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    let respuesta = confirm("¿Quieres probar los objetos de BOM?");
+    if (!respuesta) {
+        alert("AGUR");
+    } else {
+        let nuevaVentana = window.open("");
+        nuevaVentana.document.write("<h1>Título ventana BOM-nueva pestaña</h1>");
+        nuevaVentana.document.write("<p>Párrafo ventana BOM-Nueva pestaña</p>");
+        document.write("<h1>Título ventana BOM</h1>");
+        document.write("<p>Párrafo ventana BOM</p>");
+        document.write("Anchura y altura total: ");
+        document.write(screen.width +
+            "x" + screen.height);
+        document.write("<br/>");
+        document.write(" Anchura y altura disponible: ");
+        document.write(screen.availWidth + "x" + screen.availHeight);
+        document.write("<br/>");
+        document.write("Profundidad del color: ");
+        document.write(screen.colorDepth);
+        document.write("<br/>");
+        document.write("Resolución del color: ");
+        document.write(screen.pixelDepth);
+
+        let txt = "<h3>Propiedades del navegador:</h3>";
+        txt += "<p>CodeName: " + navigator.appCodeName + "</p>";
+        txt +=
+            "<p>Name: " + navigator.appName + "</p>";
+        txt += "<p>Versión: " + navigator.appVersion + "</p>";
+        txt += "<p>Cookies permitidos: " + navigator.cookieEnabled + "</p>";
+        txt +=
+            "<p>Plataforma: " + navigator.platform + "</p>";
+        txt += "<p>User‐agent header: " + navigator.userAgent + "</p>";
+        txt += "<p>Lenguaje del sistema: " + navigator.systemLanguage + "</p>";
+        document.write(txt);
+    }
+</script>
+
+</html>

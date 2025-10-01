@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo Arrays JS</title>
+</head>
+<body>
+  
+    <script>
+        let arrayComida = ["Pan","Leche","Galletas","Manzanas"];
+        let arrayCantidades = [2,8,9,4];
+        for(let index=0; index<arrayCantidades.length;index++){
+            console.log(arrayComida[index]+"- Cantidad: "+arrayCantidades[index]);
+        }
+        let arrayDespensa = [
+            ["Pan", 2],
+            ["Leche", 8],
+            ["Galletas", 9],
+            ["Manzanas", 4],
+        ];
+        for(let index=0;index<arrayDespensa.length;index++){
+            for(let index2=0;index2<arrayDespensa[index].length;index2++){
+                console.log(arrayDespensa[index][index2]);
+            }
+        }
+    </script>    
+</body>
+</html>

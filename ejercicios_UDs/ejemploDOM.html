@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo DOM</title>
+</head>
+<body>
+    <h1>Ejemplo de uso del DOM</h1>
+    <p class="parrafoImpar">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae asperiores corporis cum maxime dolor laborum natus nulla veritatis necessitatibus! Numquam temporibus reiciendis voluptate ipsa sed laborum. Similique qui odit impedit!</p>
+    <p id="parrafoDestacado">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae asperiores corporis cum maxime dolor laborum natus nulla <a href="https://www.centrosanluis.com" target="_blank">vamos a la huelga</a> veritatis necessitatibus! Numquam temporibus reiciendis voluptate ipsa sed laborum. Similique qui odit impedit!</p>
+    <p class="parrafoImpar">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae asperiores corporis cum maxime dolor laborum natus nulla veritatis necessitatibus! Numquam temporibus reiciendis voluptate ipsa sed laborum. Similique qui odit impedit!</p>
+    
+</body>
+<script>
+    //accedo a todas las etiquetas de un tipo
+    let parrafos= document.getElementsByTagName("p");
+    console.log("Mi documento tiene "+parrafos.length+ " párrafos");
+    let titulos = document.getElementsByTagName("h1");
+    console.log("Mi documento tiene "+titulos.length+ " título principal");
+    //podemos acceder por clase
+    let parrafosImpares = document.getElementsByClassName("parrafoImpar");
+    for(let index=0; index<parrafosImpares.length; index++){
+        console.log("Párrafo "+(index+1)+": "+parrafosImpares[index].textContent);
+    }
+    //accedemos a un único elemento si tenemos su ID
+    let parrafoDestacado = document.getElementById("parrafoDestacado");
+    console.log("Text content del párrafo: "+parrafoDestacado.textContent);
+    console.log("InnerHTML del párrafo: "+parrafoDestacado.innerHTML);
+    console.log(parrafoDestacado);
+    //vamos a acceder como nodos que son a sus hijos: añadir, eliminar, modificarlos...
+    console.log("Número de hijos del párrafo destacado: "+parrafoDestacado.childNodes.length);
+    console.log("Número de hijos html del párrafo destacado: "+parrafoDestacado.childElementCount);
+    //desde DOM el html lo hemos consultado pero también podemos modificarlo
+    //Ej: cambio la url del enlace
+    let enlaces = document.getElementsByTagName("a");
+    enlaces[0].setAttribute("href", "https://www.amnesty.org/es/");
+    //cambio el texto
+    enlaces[0].textContent = "NUEVO TEXTO";
+    //creo desde javascript un nuevo párrafo
+    let nuevoParrafo=document.createElement("p");
+    let textoParrafo=document.createTextNode("Un nuevo párrafo.");
+    nuevoParrafo.appendChild(textoParrafo);
+    document.getElementsByTagName("body")[0].appendChild(nuevoParrafo);
+    /* es igual que si lo hago con una variable:
+    let bodys = document.getElementsByTagName("body");
+    bodys[0].appendChild(nuevoParrafo);
+    */
+</script>
+</html>

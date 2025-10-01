@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 79</title>
+</head>
+<body>
+    <p>En este párrafo meto un <a href="https://www.google.es" onclick="muestra()">enlace</a></p>
+</body>
+<script>
+
+    function muestra(){
+        alert(document.getElementsByTagName("a")[0].getAttribute("href"));
+    }
+</script>
+</html>

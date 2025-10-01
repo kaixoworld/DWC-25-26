@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 78</title>
+</head>
+<body>
+    <h1>Ejercicio 78</h1>
+    <p>Lorem <a href="https://www.centrosanluis.com" target="_blank">CSL</a> ipsum dolor sit amet, consectetur adipisicing elit. Eveniet ad, impedit <a href="https://www.amnesty.org/es/" target="_blank">AI</a>fugiat corrupti sit iure labore a quam et officiis pariatur voluptatum <a href="https://www.centrosanluis.com" target="_blank">CSL</a> architecto quasi possimus ullam cum aperiam quisquam quia.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet ad, impedit <a href="https://www.centrosanluis.com" target="_blank">CSL</a> corrupti sit iure labore a quam et officiis pariatur voluptatum architecto <a href="https://www.google.com" target="_blank">Google</a>quasi possimus ullam cum aperiam quisquam quia.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet ad,<a href="https://www.centrosanluis.com" target="_blank">CSL</a>  impedit fugiat corrupti sit iure labore a quam et officiis pariatur voluptatum architecto quasi <a href="https://www.amnesty.org/es/" target="_blank">AI</a> possimus ullam cum aperiam quisquam quia.</p>
+</body>
+<script>
+
+    let enlaces = document.getElementsByTagName("a");
+    console.log("Número de enlaces total de la página: "+enlaces.length);
+    let contadorEnlacesCSL = 0;
+    for(let enlace of enlaces)
+        if(enlace.getAttribute("href")=="https://www.centrosanluis.com")
+            contadorEnlacesCSL++;
+    console.log("Hay "+contadorEnlacesCSL+" enlaces a Sanlu");
+            
+</script>
+</html>
