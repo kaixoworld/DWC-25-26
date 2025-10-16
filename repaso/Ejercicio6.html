@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<!--
+Daremos funcionalidad a los botones de la página según el video.
+Utilizaremos funciones flecha y tipo de variables correctamente
+-->
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap" rel="stylesheet">
+       
+    <title>EJERCICIO 6 JAVASCRIPT ECMA6</title>
+
+</head>
+
+<body>
+    <h1>MENSAJERÍA</h1>
+    <section>
+       
+        Destinataria/o: <select name="destinat" id="destinat">
+            <option value="selecciona" selected>Selecciona quién recibirá noticias tuyas...</option>
+            <option value="yo">a mi mism@</option>
+            <option value="tu">para ti por ser tú</option>
+            <option value="tod">para todo el mundo!</option>
+        </select>
+
+        <fieldset>
+            <legend>Mensaje: </legend>
+            <textarea id="textoMensaje" rows="10" cols="50"></textarea>
+        </fieldset>
+        <section class="botones"> <input type="button" value="enviar">
+
+        </section>
+        <br /><br />
+        <fieldset>
+            <legend>LO QUE HAS ENVIADO</legend>
+            <section id="listaDefinitiva">
+                <p id="mensaje">De momento...nada</p>
+            </section>
+            <br /><br />
+
+
+        </fieldset>
+        <section class="botones"> 
+            <input type="button" value="eliminar">
+            <input type="button" value="a la nube!">
+        </section>
+
+    </section>
+
+<script src="js/Ejercicio6.js"></script>
+</body>
+
+</html>
