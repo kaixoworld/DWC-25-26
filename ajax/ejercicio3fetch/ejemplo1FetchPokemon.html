@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Pokémon</h2>
+<p id="nombre"></p>
+
+<script>
+// Llamada MUY sencilla al API
+fetch("https://pokeapi.co/api/v2/pokemon/pikachu")
+    .then(respuesta => respuesta.json())
+    .then(datos => {
+        // Mostrar el nombre del Pokémon
+        document.getElementById("nombre").textContent = datos.name;
+    })
+    .catch(error => console.error(error));
+</script>
+
+</body>
+</html>
