@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>Ejemplo de Selectores</title>
+    <style type="text/css">
+        .verde {color:green;}
+        .azul {color:blue;}
+        .borde {border:2px solid;}
+    </style>
+</head>
+<body>
+    <p>REUNIONES</p>
+    <ul>
+        <li>9:00 reunión de coordinación</li>
+        <li>15:00 comisión de trabajo</li>
+        <li>19:00 cañitas con las amigas</li>
+         <li></li>
+    </ul>
+
+    <p>PLANNING</p>
+    <ul>
+        <li>LUNES
+            <ul data-hours="2">
+                <li class="azul" >Puesta al día</li>
+            </ul>
+        </li>
+        <li>MARTES
+            <ul data-hours="9">
+                <li class="azul">Desarrollo front individual</li>
+            </ul>
+        </li>
+        <li>MIÉRCOLES
+            <ul data-hours="9">
+                <li class="azul">Desarrollo front individual</li>
+            </ul>
+        </li>
+        <li>JUEVES
+            <ul data-hours="6">
+                <li class="azul">Testeo</li>
+            </ul>
+        </li>
+        <li>VIERNES
+            <ul data-hours="3">
+                <li class="azul">Seguimiento del proyecto</li>
+            </ul>
+        </li>
+    </ul>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="js/ejercicioSelectores.js"></script>
+</html>
