@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hola mundo</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        /*jsx con lo que escribo en el html*/
+        const Header= (props)=>{
+            return(
+                <header>
+                    <h1>{props.titulo}</h1>
+                </header>
+            );
+        }
+        const Tarea = (props)=>{
+            return(
+                <div>
+                    <p>TAREA {props.id}</p>
+                    <p>{props.descripcion} - ESTADO: {props.estado}</p>
+                </div>    
+            );
+        }
+        const NuevaTarea = ()=>{
+            return (
+                <div>
+                    
+                </div>
+            );
+        }
+        const ListaTareas = ()=>{
+
+            const[tareas, setTareas] = React.useState([
+                {
+                    id:1,
+                    descripcion: "Estudiar Javascript",
+                    estado:"Sin empezar"
+                },{
+                    id:2,
+                    descripcion: "Estudiar PHP",
+                    estado:"Sin empezar"
+                },{
+                    id:3,
+                    descripcion: "Practicar Tailwindcss",
+                    estado:"Sin empezar"
+                }
+            ]); 
+            
+            return(
+                <div>
+                    <NuevaTarea />
+                    {tareas.map(tarea =>{
+                        <Tarea id={tarea.id} descripcion={tarea.descripcion} estado={tarea.estado}/>
+                    })}
+                        
+                        
+                </div>
+            );
+        }
+        const App = () => {
+            return (
+                <div>
+                    <Header titulo="TODO-List"/>
+                    <ListaTareas/>
+                </div>    
+            );
+        }
+        const root = ReactDOM.createRoot(document.getElementById("root"));
+        root.render(<App/>);
+    </script>
+
+</body>
+</html>

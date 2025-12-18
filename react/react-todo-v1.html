@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hola mundo</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        /*jsx con lo que escribo en el html*/
+        const Header = (props) => {
+            return (
+                <header>
+                    <h1>{props.titulo}</h1>
+                </header>
+            );
+        }
+        const Tarea = (props) => {
+            return (
+                <div>
+                    <p>TAREA {props.id}</p>
+                    <p>{props.descripcion} - ESTADO: {props.estado}</p>
+                    <button onClick={() => props.onEliminarTarea(props.id)}>eliminar</button>
+                </div>
+            );
+        }
+        const NuevaTarea = (props) => {
+            const [nuevaTarea, setNuevaTarea] = React.useState('');
+
+
+            const añadirTarea = () => {
+                if (nuevaTarea.trim() === '') return;
+
+                const tarea = {
+                    id: props.totalTareas + 1,
+                    descripcion: nuevaTarea,
+                    estado: "Sin empezar"
+                };
+
+                // Usamos la función que nos pasan por props
+                props.onAñadirTarea(tarea);
+                setNuevaTarea('');
+            };
+
+            return (
+                <div>
+                    {/*aqui nos quedamos, crando el componente
+                        sin el onchange React no puede reaccionar al cambio de estado*/}
+                    <input type="text" placeholder="Escribe aquí tu nueva tarea..." value={nuevaTarea}
+                        onChange={(e) => setNuevaTarea(e.target.value)} />
+                    <button onClick={añadirTarea}>añadir</button>
+                </div>
+            );
+        }
+        const ListaTareas = () => {
+
+            const [tareas, setTareas] = React.useState([
+                {
+                    id: 1,
+                    descripcion: "Estudiar Javascript",
+                    estado: "Sin empezar"
+                }, {
+                    id: 2,
+                    descripcion: "Estudiar PHP",
+                    estado: "Sin empezar"
+                }, {
+                    id: 3,
+                    descripcion: "Practicar Tailwindcss",
+                    estado: "Sin empezar"
+                }
+            ]);
+
+            const añadirTarea = (tarea) => {
+                setTareas([...tareas, tarea]);
+            };
+            const eliminarTarea = (id) => {
+                setTareas(tareas.filter(tarea => tarea.id !== id));
+            };
+            return (
+                <div>
+                    {/*le meto totalTareas como prop para poder saber luego el id de la nueva tarea*/}
+                    <NuevaTarea onAñadirTarea={añadirTarea} totalTareas={tareas.length} />
+                    {tareas.map(tarea => {
+                        {/*react necesita que cada elemento deuna lista tenga un key
+                            Y si no pongo return no me renderiza lo que recorre*/}
+                        return <Tarea
+                            key={tarea.id}
+                            id={tarea.id}
+                            descripcion={tarea.descripcion}
+                            estado={tarea.estado}
+                            onEliminarTarea={eliminarTarea}
+
+                        />
+                    })}
+
+
+                </div>
+            );
+        }
+        const App = () => {
+            return (
+                <div>
+                    <Header titulo="TODO-List" />
+                    <ListaTareas />
+                </div>
+            );
+        }
+        const root = ReactDOM.createRoot(document.getElementById("root"));
+        root.render(<App />);
+    </script>
+
+</body>
+
+</html>

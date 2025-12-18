@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hola mundo</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        /*jsx con lo que escribo en el html*/
+        const Header= (props)=>{
+            return(
+                <header>
+                    <h1>{props.titulo}</h1>
+                </header>
+            );
+        }
+        function HolaMundo(props){
+            /*variable que puede cambiar del componente:contador*/
+            /*si cambia, lo va a hacer a través de la función setContador*/
+            /*añado este posible cambio de estado a la lista de cambios de estado*/
+            const[contador, setContador] = React.useState(0); 
+            return(
+                <div>
+                    <h1>¡Hola, {props.nombre}!</h1>
+                    <p>Viendo estados de React</p>
+                    <p>{props.mensaje}</p>
+                    <p>Valor del contador: {contador} </p>
+                    <button onClick={()=>{setContador(contador+1)}}>+</button>
+                    <button onClick={()=>{setContador(contador-1)}}>-</button>
+                </div>
+            );
+        }
+        const App = () => {
+            return (
+                <div>
+                    <Header titulo="Probando varios componentes"/>
+                    <HolaMundo nombre="Elen" mensaje="Enga, que ya es miércoles!"/>
+                    <HolaMundo nombre="Iker" mensaje="Enga, que llegamos!"/>
+                </div>    
+            );
+        }
+        const root = ReactDOM.createRoot(document.getElementById("root"));
+        root.render(<App/>);
+    </script>
+
+</body>
+</html>
