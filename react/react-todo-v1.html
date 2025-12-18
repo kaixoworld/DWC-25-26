@@ -15,6 +15,13 @@
     <div id="root"></div>
     <script type="text/babel">
         /*jsx con lo que escribo en el html*/
+           const ContadorTareas = (props) => {
+            return (
+                <footer>
+                    <p>Tienes {props.totalTareas} tareas por hacer</p>
+                </footer>
+            );
+        }
         const Header = (props) => {
             return (
                 <header>
@@ -83,6 +90,9 @@
             const eliminarTarea = (id) => {
                 setTareas(tareas.filter(tarea => tarea.id !== id));
             };
+            const modificarTarea = (id) => {
+                {/*FALTA POR HACER*/}
+            };
             return (
                 <div>
                     {/*le meto totalTareas como prop para poder saber luego el id de la nueva tarea*/}
@@ -96,10 +106,10 @@
                             descripcion={tarea.descripcion}
                             estado={tarea.estado}
                             onEliminarTarea={eliminarTarea}
-
+                            onModificarTarea={modificarTarea}
                         />
                     })}
-
+                    <ContadorTareas totalTareas={tareas.length}/>
 
                 </div>
             );
