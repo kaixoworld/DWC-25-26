@@ -1,0 +1,49 @@
+body{
+    z-index: -1;
+    color: #157853;
+    font-family: 'Neucha', cursive;
+    font-size: 1.25em;
+}
+main{display:flex;
+     flex-direction: column;
+     justify-content: center;}
+main>div{
+    position: relative;
+    margin: 0 auto;
+    padding: 5px;
+    text-align: center;
+}
+main>div div:nth-child(1){
+    position: relative;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+#panelDeseos{
+/*main>div div:nth-child(2){*/
+    margin: 0 auto;
+    background-image: url('../assets/arbol.png');
+    background-size: cover;
+    height: 100vh;
+    width: 100vh;
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+    padding:8px;
+    gap:1.25em;/*añadido para corregir la visualización*/
+}
+
+.mensaje{
+   	z-index:3;
+    background-color: #00E678;
+    padding:1%;
+    margin-top:2%;
+    color:#fff;
+}
+
+button+p{
+    color:#054D8E;
+}
+
